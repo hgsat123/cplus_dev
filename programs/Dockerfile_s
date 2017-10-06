@@ -1,0 +1,11 @@
+FROM hgsat123/cplus:dev
+MAINTAINER Satish Hegde <satish.hegde@wipro.com>
+
+COPY swap.cpp /project/swap.cpp
+WORKDIR /project
+#RUN g++ -o swap swap.cpp
+RUN make swap && cp swap /tmp
+
+#RUN chmod +x swap
+
+CMD ["/tmp/swap"]

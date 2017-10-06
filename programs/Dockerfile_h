@@ -1,0 +1,11 @@
+FROM hgsat123/cplus:dev
+MAINTAINER Satish Hegde <satish.hegde@wipro.com>
+
+COPY HelloWorld.cpp /project/HelloWorld.cpp
+WORKDIR /project
+
+#RUN g++ -o HelloWorld HelloWorld.cpp 
+RUN make HelloWorld && cp HelloWorld /tmp
+
+
+CMD ["/tmp/HelloWorld"]
